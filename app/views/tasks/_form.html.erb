@@ -3,7 +3,9 @@
   <%= task.text_field :title %>
   <%= task.label :details %>
   <%= task.text_field :details %>
-  <%= task.label :completed %>
-  <%= task.check_box :completed %>
+  <% if !@task.new_record?() %>
+    <%= task.label :completed %>
+    <%= task.check_box :completed %>
+  <% end %>
   <%= task.submit %>
 <% end %>

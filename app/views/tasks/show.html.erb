@@ -1,8 +1,14 @@
 <h1><%= @task.title %></h1>
-<p><%= @task.details %></p>
-<p><%= @task.completed %></p>
+<div class="bg-light border border-light-300 rounded p-4 w-25"><%= @task.details %></div>
+<p>
+  <i class="fa-regular fa-square<%= "-check" if @task.completed %>"></i>
+  <%= "This task is not yet completed" if !@task.completed %>
+  <%= "This task is completed" if @task.completed %>
+</p>
+<%=  %>
 
-
-<%= link_to "Edit", edit_task_path(@task) %>
-<%= link_to "Delete", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<%= link_to "View all task", tasks_path %>
+<ul class="list-unstyled">
+  <li><i class="fa-solid fa-pen"></i> <%= link_to "Edit", edit_task_path(@task) %></li>
+  <li><i class="fa-solid fa-trash"></i> <%= link_to "Delete", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
+  <li><i class="fa-solid fa-list-check"></i> <%= link_to "View all", tasks_path %></li>
+</ul>
