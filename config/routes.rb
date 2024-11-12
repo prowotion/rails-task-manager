@@ -5,22 +5,23 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  resources :tasks
   # Defines the root path route ("/")
   # root "posts#index"
 
   # On affiche toutes les tâches
-  get "tasks", to: "tasks#index"
+  # get "tasks", to: "tasks#index"
 
-  # On veut créer une tâche
-  get "tasks/new", to: "tasks#new"
-  post "tasks", to: "tasks#create"
+  # # On veut créer une tâche
+  # get "tasks/new", to: "tasks#new"
+  # post "tasks", to: "tasks#create"
 
-  # On veut afficher une tâche en particulier
-  get "tasks/:id", to: "tasks#show", as: :task
+  # # On veut afficher une tâche en particulier
+  # get "tasks/:id", to: "tasks#show", as: :task
 
-  get "tasks/:id/edit", to: "tasks#edit", as: :edit_task
+  # get "tasks/:id/edit", to: "tasks#edit", as: :edit_task
 
-  patch "tasks/:id", to: "tasks#update"
+  # patch "tasks/:id", to: "tasks#update"
 
-  delete "tasks/:id", to: "tasks#destroy"
+  # delete "tasks/:id", to: "tasks#destroy"
 end
